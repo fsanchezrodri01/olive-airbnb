@@ -5,23 +5,28 @@ body {
   background-color: #f4f5e7; /* Fondo color oliva claro */
   color: #3a3d27; /* Texto color oliva oscuro */
 }
+
 header {
   background-color: #6b8e23; /* Fondo del encabezado en verde oliva */
   color: white;
   padding: 15px 10px;
 }
+
 header h1 {
   margin: 0;
 }
+
 nav ul {
   list-style: none;
   padding: 0;
   display: flex;
   gap: 15px; /* Espacio entre los enlaces de navegación */
 }
+
 nav ul li {
   display: inline;
 }
+
 nav ul li a {
   text-decoration: none;
   color: white;
@@ -29,111 +34,91 @@ nav ul li a {
   background-color: #3a3d27; /* Fondo verde oliva oscuro para los enlaces */
   border-radius: 5px;
 }
+
 nav ul li a:hover {
   background-color: #556b2f; /* Fondo verde oliva medio cuando se pasa el ratón */
 }
+
 main {
   padding: 20px;
 }
+
 /* Estilo para la sección de características utilizando CSS Grid */
 .features {
-  display: grid; /* Usamos grid para organizar las cajas */
-  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
-  gap: 20px; /* Espacio entre las cajas */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   margin-top: 20px;
+}
+
+/* Responsive grid: una columna en móviles, dos en tabletas */
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
 }
 
 .feature {
   background: #e3e8cd; /* Fondo color oliva claro para cada caja */
   padding: 20px;
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para darle profundidad */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
 button {
   background-color: #6b8e23; /* Fondo verde oliva para el botón */
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px; /* Bordes redondeados para el botón */
-  cursor: pointer; /* Cambia el cursor cuando se pasa sobre el botón */
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 1em;
 }
+
 button:hover {
-  background-color: #556b2f; /* Fondo verde oliva oscuro cuando se pasa el ratón */
+  background-color: #556b2f;
 }
+
 footer {
   text-align: center;
-  background-color: #3a3d27; /* Fondo verde oliva oscuro para el pie de página */
+  background-color: #3a3d27;
   color: white;
   padding: 10px;
   margin-top: 20px;
 }
 
+/* Carousel styling adjustments */
 .carousel {
   position: relative;
-  width: 100%; /* Ancho completo */
-  height: 500px; /* Altura ajustable */
-  overflow: hidden; /* Ocultar lo que sobresalga del carrusel */
+  width: 100%;
+  /* Use a responsive 16:9 aspect ratio instead of a fixed height */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   margin: 20px auto;
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el carrusel */
-  background-color: #fff; /* Fondo blanco para el carrusel */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 
-.carousel-slide {
-  display: flex;
-  transition: transform 0.4s ease-in-out; /* Transición suave para el cambio de imágenes */
-}
-
-.carousel-slide img {
-  flex-shrink: 0;
-  width: 100%; /* Tomar todo el ancho del slide */
-  height: 100%; /* Ajustar la altura para que coincida con la altura del carrusel */
-  object-fit: cover; /* Asegura que la imagen encaje sin distorsión */
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%); /* Centrado vertical del botón */
-  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente negro */
-  color: white;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-  padding: 10px;
-  border-radius: 50%; /* Botón redondeado */
-}
-
-.carousel-button.prev {
-  left: 10px; /* Ubicación del botón anterior a la izquierda */
-}
-
-.carousel-button.next {
-  right: 10px; /* Ubicación del botón siguiente a la derecha */
-}
-
-.carousel-button:hover {
-  background: rgba(0, 0, 0, 0.8); /* Fondo más oscuro al pasar el ratón */
-}
-
+/* Ensure carousel images cover the container */
 .carousel-inner img {
-  object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor */
-  height: 100%; /* La altura de la imagen ocupa toda la altura del carrusel */
-  width: 100%; /* El ancho de la imagen ocupa todo el ancho del carrusel */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .navbar-brand {
   max-width: 80px;
   height: auto;
 }
+
 @media (max-width: 768px) {
   .navbar-brand {
     max-width: 60px; /* Reducir el tamaño del logo en pantallas pequeñas */
   }
 }
+
 .feature h3 {
-  margin-bottom: 10px; /* Espacio debajo del título de cada característica */
+  margin-bottom: 10px;
 }
