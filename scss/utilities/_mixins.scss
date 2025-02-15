@@ -1,0 +1,9 @@
+// Ejemplo mixin con parametros
+@mixin box-shadow($shadow: 0 2px 5px rgba(0, 0, 0, 0.1)) {
+  box-shadow: $shadow;
+}
+
+// Ejemplo mixin
+@mixin transition($property: all, $duration: 0.3s, $ease: ease-in-out) {
+  transition: #{$property} #{$duration} #{$ease};
+}

@@ -2,16 +2,15 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f5e7; /* Fondo color oliva claro */
-  color: #3a3d27; /* Texto color oliva oscuro */
+  background-color: #f4f5e7;
+  color: #3a3d27;
 }
 
 header {
-  background-color: #6b8e23; /* Fondo del encabezado en verde oliva */
+  background-color: #6b8e23;
   color: white;
   padding: 15px 10px;
 }
-
 header h1 {
   margin: 0;
 }
@@ -20,30 +19,26 @@ nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 15px; /* Espacio entre los enlaces de navegación */
+  gap: 15px;
 }
-
 nav ul li {
   display: inline;
 }
-
 nav ul li a {
   text-decoration: none;
   color: white;
   padding: 5px 10px;
-  background-color: #3a3d27; /* Fondo verde oliva oscuro para los enlaces */
+  background-color: #3a3d27;
   border-radius: 5px;
 }
-
 nav ul li a:hover {
-  background-color: #556b2f; /* Fondo verde oliva medio cuando se pasa el ratón */
+  background-color: #556b2f;
 }
 
 main {
   padding: 20px;
 }
 
-/* Estilo para la sección de características utilizando CSS Grid */
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -51,23 +46,26 @@ main {
   margin-top: 20px;
 }
 
-/* Responsive grid: una columna en móviles, dos en tabletas */
-@media (max-width: 768px) {
-  .features {
-    grid-template-columns: 1fr;
-  }
-}
-
 .feature {
-  background: #e3e8cd; /* Fondo color oliva claro para cada caja */
+  background: #e3e8cd;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+.feature h3 {
+  margin-bottom: 10px;
+}
+
+.custom-feature {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.custom-feature:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
 button {
-  background-color: #6b8e23; /* Fondo verde oliva para el botón */
+  background-color: #6b8e23;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -75,8 +73,21 @@ button {
   cursor: pointer;
   font-size: 1em;
 }
-
 button:hover {
+  background-color: #556b2f;
+}
+
+.btn-custom {
+  background-color: #6b8e23;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease-in-out;
+}
+.btn-custom:hover {
   background-color: #556b2f;
 }
 
@@ -88,37 +99,62 @@ footer {
   margin-top: 20px;
 }
 
-/* Carousel styling adjustments */
 .carousel {
   position: relative;
   width: 100%;
-  /* Use a responsive 16:9 aspect ratio instead of a fixed height */
-  aspect-ratio: 16 / 9;
+  height: 500px;
   overflow: hidden;
   margin: 20px auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #fff;
 }
-
-/* Ensure carousel images cover the container */
-.carousel-inner img {
-  object-fit: cover;
+.carousel .carousel-slide {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+.carousel .carousel-slide img {
+  flex-shrink: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+.carousel .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px;
+  border-radius: 50%;
+}
+.carousel .carousel-button.prev {
+  left: 10px;
+}
+.carousel .carousel-button.next {
+  right: 10px;
+}
+.carousel .carousel-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.carousel .carousel-inner img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar-brand {
   max-width: 80px;
   height: auto;
 }
-
 @media (max-width: 768px) {
   .navbar-brand {
-    max-width: 60px; /* Reducir el tamaño del logo en pantallas pequeñas */
+    max-width: 60px;
   }
 }
 
-.feature h3 {
-  margin-bottom: 10px;
-}
+/*# sourceMappingURL=styles.css.map */

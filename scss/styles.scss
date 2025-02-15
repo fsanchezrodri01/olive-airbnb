@@ -1,0 +1,188 @@
+@import "utilities/variables";
+@import "utilities/mixins";
+
+// Base styles
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $olive-light;
+  color: $olive-dark;
+}
+header {
+  background-color: $olive;
+  color: white;
+  padding: 15px 10px;
+
+  h1 {
+    margin: 0;
+  }
+}
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px; // Espacio entre los enlaces de navegación
+
+    li {
+      display: inline;
+
+      a {
+        text-decoration: none;
+        color: white;
+        padding: 5px 10px;
+        background-color: $olive-dark;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: $olive-medium;
+        }
+      }
+    }
+  }
+}
+main {
+  padding: 20px;
+}
+
+// cajas
+.features {
+  display: grid; // Usamos grid para organizar las cajas
+  grid-template-columns: repeat(3, 1fr); // Tres columnas de igual tamaño
+  gap: 20px; // Espacio entre las cajas
+  margin-top: 20px;
+}
+
+.feature {
+  background: $feature-bg;
+  padding: 20px;
+  border-radius: 8px; // Bordes redondeados
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Sombra ligera
+  text-align: center;
+
+  h3 {
+    margin-bottom: 10px; // Espacio debajo del título de cada servicio
+  }
+}
+
+// se extiende la clase .feature
+.custom-feature {
+  //   @extend .feature; // inherits .feature styles
+  //   background-color: lighten($feature-bg, 10%);
+
+  // uso de mixin para box shadow
+  @include box-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+
+  // nesting
+  &:hover {
+    @include box-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+  }
+}
+
+button {
+  background-color: $olive;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+
+  &:hover {
+    background-color: $olive-medium;
+  }
+}
+
+// clase personalizada
+.btn-custom {
+  background-color: $olive;
+  color: $white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+
+  // Include transition mixin
+  @include transition(background-color, 0.3s);
+
+  &:hover {
+    background-color: $olive-medium;
+  }
+}
+
+footer {
+  text-align: center;
+  background-color: $olive-dark;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+// sección del carousel
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 500px; // Altura ajustable
+  overflow: hidden; // Ocultar lo que sobresalga del carrusel
+  margin: 20px auto;
+  border-radius: 10px; // Bordes redondeados
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Sombra
+  background-color: #fff; // Fondo blanco
+
+  .carousel-slide {
+    display: flex;
+    transition: transform 0.4s ease-in-out; // Transición suave
+
+    img {
+      flex-shrink: 0;
+      width: 100%; // Tomar todo el ancho del slide
+      height: 100%; // Coincidir con la altura del carrusel
+      object-fit: cover; // Encajar sin distorsión
+    }
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); // Centrado vertical
+    background: rgba(0, 0, 0, 0.5); // Fondo semi-transparente negro
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 50%; // Botón redondeado
+
+    &.prev {
+      left: 10px; // Ubicación a la izquierda
+    }
+
+    &.next {
+      right: 10px; // Ubicación a la derecha
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.8); // Fondo más oscuro al pasar el ratón
+    }
+  }
+
+  .carousel-inner {
+    img {
+      object-fit: contain; // Ajuste de imagen dentro del contenedor
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// media query
+.navbar-brand {
+  max-width: 80px;
+  height: auto;
+  @media (max-width: 768px) {
+    max-width: 60px; // reducir el tamaño del logo en pantallas pequeñas
+  }
+}
